@@ -1,14 +1,14 @@
 from flask import Flask
 
-from app import app
+from .config import  DevConfig
 
 # intitalising application
 app = Flask(__name__)
 
+
+# setting up configuration
+app.config.from_object(DevConfig)
 # importing views form app folder
 
 from app import views
 
-#views
-@app.route('/')
-def index():
