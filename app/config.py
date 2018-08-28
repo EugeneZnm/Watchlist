@@ -4,7 +4,7 @@ class Config:
 
     contains configuration used in both production and development stages
     """
-    pass
+    MOVIE_API_BASE_URL = 'https://api.themoviedb.org/3/movie/{}?api_key={}'
 
 
 class Production(Config):
@@ -25,5 +25,7 @@ class DevConfig(Config):
     Contains configurations used in development stages of application and inherits from parent Config class
 
     """
+
     # enabling debug mode
     DEBUG = True
+
