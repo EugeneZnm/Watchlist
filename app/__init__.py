@@ -2,11 +2,9 @@ from flask import Flask
 
 from .config import  DevConfig
 
-from flask_bootstrap import Bootstrap
+from .flask_bootstrap import Bootstrap
 
-from app import views
 
-from app import error
 
 # intitalising application
 # passing in instance_relative_config allowing connection to instance folder when app instance is created
@@ -24,4 +22,6 @@ bootstrap = Bootstrap(app)
 # importing views form app folder
 
 from app import views
+
+from app import error
 

@@ -8,6 +8,9 @@ from app import app
 
 from .request import get_movies, get_movie, search_movie
 
+from .models import review
+from .forms import ReviewForm
+Review = review.Review
 
 # views
 
@@ -46,6 +49,7 @@ def index():
 
 @app.route('/movie/<int:id>')
 def movie(id):
+
     movie = get_movie(id)
     title = f'{movie.title}'
 
@@ -61,7 +65,7 @@ def search(movie_name):
     :param movie_name:
     :return:
     """
-    movie_name_list = movie_name.split
+    movie_name_list = movie_name.split(" ")
     # format movie_name to add + between multiple words
     movie_name_format = "+".join(movie_name_list)
     # call search movies and pass in formatted movie name
@@ -69,3 +73,29 @@ def search(movie_name):
     title = f'search results for {movie_name}'
     # pass search movies in template
     return render_template('search.html', movies=searched_movies)
+
+
+# new dynamic route for new_review function and pass in movie id
+# add method to decorator telling flask to register function as handler for both GET and POST requests
+# lack of methods argument enables the function to handle GET requests only
+@app.route('/movie/review/new/<int:id>', methods=['GET', 'POST'])
+def new_review(id):
+    # creating instance of ReviewForm class and name it form
+    form = ReviewForm()
+
+    # call get_movie passing ID to get movie object with ID
+    movie = get_movie(id)
+
+    # data from form is verified by validators
+    if form.validate_on_submit():
+        title = form.title.data
+        review = form.review.data
+        # data from input fields is gathered and saved in new-review object
+        new_review = Review(movie.id, title, movie.poster, review)
+        new_review.save_review()
+        # response is redirected to movie_view function, movie ID passed in
+        return redirect(url_for('movie', id=movie.id))
+
+    title = f'{movie.title} review'
+    # rendered when validate method returns false
+    return render_template('new_review.html', title=title, review_form=form, movie=movie)
