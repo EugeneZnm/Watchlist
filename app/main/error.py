@@ -1,11 +1,12 @@
 # import render template and flask application instance
 from flask import render_template
 
-from app import app
+from . import main
 
 
 # decorator passing in error we receive
-@app.errorhandler(404)
+# import blueprint instance main and use it to define decorator
+@main.app_errorhandler(404)
 # view function returning fourOwfour.html
 def four_Ow_four(error):
     """

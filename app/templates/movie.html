@@ -1,4 +1,5 @@
-<!--{%extends 'base.html'%}-->
+<!--importing macros.html  to use displayReviews macro-->
+{% import 'macros.html' as macro%}
 
 <h1> Hello Movie {{ id }} </h1>
 <!--content block-->
@@ -7,7 +8,7 @@
 
     <!-- Poster background -->
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{movie.poster}}) no-repeat center center">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{movie.poster}}) no-repeat center center; width:10rem;">
         </div>
 
         <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
@@ -19,6 +20,19 @@
             <a class="ratings" href="/movie/review/new/{{movie.id}}"> Write a new review</a>
         </div>
 
+    </div>
+
+    <!--New row to check if any reviews exist for a particular movie-->
+    <div class="row">
+        <h1>Reviews</h1>
+        <hr>
+
+        {% if reviews%}
+            {{macro.displayReviews(reviews)}}
+        {% else %}
+            <h3 class="text-center">This movie has no reviews</h3>
+            <a class="btn btn-success btn-lg text_center" href="/movie/review/new/{{movie.id}}"> write a new review</a>
+        {% endif%}
     </div>
 </div>
 {% endblock %}

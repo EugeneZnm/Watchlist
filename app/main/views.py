@@ -2,19 +2,20 @@
 
 from flask import render_template, request, redirect, url_for
 # importation of app instance from app folder
-from app import app
+# from app import app
 
 # import get movies, get movie and search movie functions from request module
 
-from .request import get_movies, get_movie, search_movie
-
-from .models import review
+from flask import render_template, request, redirect, url_for
+from . import main
+from ..request import get_movies, get_movie, search_movie
 from .forms import ReviewForm
-Review = review.Review
+from ..models import Review
+
 
 # views
-
-@app.route('/')
+# defining route decorators using the main blueprint instance
+@main.route('/')
 # definition of view function
 def index():
     """
@@ -41,23 +42,29 @@ def index():
     if search_movie:
         # checking if value exists by using the redirect function redirecting to view function
         # pass url_for function that passes in search view function along with the dynamic movie_name assigning it to form input value
-        return redirect(url_for('search', movie_name=search_movie))
+        return redirect(url_for('main.search', movie_name=search_movie))
     else:
         return render_template('index.html', title=title, popular=popular_movies, upcoming=upcoming_movie,
                                now_showing=now_showing_movie)  # result from get_movies function passed to template
 
 
-@app.route('/movie/<int:id>')
+@main.route('/movie/<int:id>')
 def movie(id):
-
+    """
+    view movie page function that returns the movie details page and its data
+    :param id:
+    :return:
+    """
     movie = get_movie(id)
     title = f'{movie.title}'
+    # call get reviews method taking in movie id
+    reviews = Review.get_reviews(movie.id)
 
-    return render_template('movie.html', title=title, movie=movie)
+    return render_template('movie.html', title=title, movie=movie, reviews=reviews)
 
 
 # creating search view function displaying search items from api
-@app.route('/search/<movie_name>')
+@main.route('/search/<movie_name>')
 # create search variable and pass dynamic variable movie_name
 def search(movie_name):
     """
@@ -78,7 +85,7 @@ def search(movie_name):
 # new dynamic route for new_review function and pass in movie id
 # add method to decorator telling flask to register function as handler for both GET and POST requests
 # lack of methods argument enables the function to handle GET requests only
-@app.route('/movie/review/new/<int:id>', methods=['GET', 'POST'])
+@main.route('/movie/review/new/<int:id>', methods=['GET', 'POST'])
 def new_review(id):
     # creating instance of ReviewForm class and name it form
     form = ReviewForm()
@@ -94,7 +101,7 @@ def new_review(id):
         new_review = Review(movie.id, title, movie.poster, review)
         new_review.save_review()
         # response is redirected to movie_view function, movie ID passed in
-        return redirect(url_for('movie', id=movie.id))
+        return redirect(url_for('main.movie', id=movie.id))
 
     title = f'{movie.title} review'
     # rendered when validate method returns false

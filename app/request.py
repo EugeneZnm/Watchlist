@@ -1,18 +1,25 @@
-from app import app
 # import urllib request module enabling connection to API URL and send request
 # import json modules that will format JSON response to a python dictionary
 import urllib.request, json
-from .models import movie
 
-Movie = movie.Movie
+from .models import Movie
 
 # ACCESSING APP CONFIGURATION OBJECTS - CALL app.config['name of object']
 
+# CREATE API KEY AND BASE URL AND SET THEM TO NONE
 # getting api key
-api_key = app.config['MOVIE_API_KEY']
+api_key = None
 
 # Getting the movie base url
-base_url = app.config["MOVIE_API_BASE_URL"]
+base_url = None
+
+
+# function configure_request() taking in application instance and replace values of none variables to application configuration objects
+# function give access to application configuration objects, called when creating application instance
+def configure_request(app):
+    global api_key, base_url
+    api_key = app.config['MOVIE_API_KEY']
+    base_url = app.config['MOVIE_API_BASE_URL']
 
 
 # function taking movie categories as an argument
@@ -104,20 +111,17 @@ def process_results(movie_list):
 
 # creating search request
 def search_movie(movie_name):
-
     # new url for search request passing API Key and movie name
-    search_movie_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key,movie_name)
+    search_movie_url = 'https://api.themoviedb.org/3/search/movie?api_key={}&query={}'.format(api_key, movie_name)
     # creating request
     with urllib.request.urlopen(search_movie_url) as url:
         search_movie_data = url.read()
         search_movie_response = json.loads(search_movie_data)
 
         search_movie_results = None
-    # processing results
+        # processing results
         if search_movie_response['results']:
             search_movie_list = search_movie_response['results']
             search_movie_results = process_results(search_movie_list)
 
     return search_movie_results
-
-
