@@ -1,16 +1,16 @@
-# import render template function from  flask
-
-from flask import render_template, request, redirect, url_for
 # importation of app instance from app folder
 # from app import app
 
 # import get movies, get movie and search movie functions from request module
 
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, abort
 from . import main
 from ..request import get_movies, get_movie, search_movie
-from .forms import ReviewForm
-from ..models import Review
+from .forms import ReviewForm, UpdateProfile
+from ..models import Review, User
+from flask_login import login_required
+# import photos instance
+from .. import db, photos
 
 
 # views
@@ -86,6 +86,8 @@ def search(movie_name):
 # add method to decorator telling flask to register function as handler for both GET and POST requests
 # lack of methods argument enables the function to handle GET requests only
 @main.route('/movie/review/new/<int:id>', methods=['GET', 'POST'])
+# decorator login_required intercepting a request to check user authentication, redirecting user to login page if not
+@login_required
 def new_review(id):
     # creating instance of ReviewForm class and name it form
     form = ReviewForm()
@@ -106,3 +108,82 @@ def new_review(id):
     title = f'{movie.title} review'
     # rendered when validate method returns false
     return render_template('new_review.html', title=title, review_form=form, movie=movie)
+
+
+# route handled by profile view function
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(username = uname).first()
+
+    if user is None:
+        """
+        querying database to find user according to username passed
+        """
+        abort(404) # abort stops request and returns response based on status code passed in, called when no user is found
+        """
+        abort called when no user is found
+        else template is rendered when user is found
+        """
+    return render_template("profile/profile.html", user=user) # user passed in as variable in template
+
+
+@main.route('/user/<uname>/update', methods = ['GET', 'POST'])
+@login_required
+def update_profile(uname):
+    """
+    profile view function
+    :param uname:
+    instantiates UpdatedProfile form class
+    :return:
+    """
+    user = User.query.filter_by(username = uname).first()
+    """
+    query database to find a user with same username
+    """
+    if user is None:
+        abort(404)
+
+    form = UpdateProfile()
+
+    if form.validate_on_submit():
+        """
+        form validation
+        """
+        user.bio = form.bio.data
+        """
+        update content of user.bio property to fill in what user has submitted
+        """
+
+        db.session.add(user)
+        db.session.commit()
+
+        # user redirected to profile page where new bio can be seen
+        return redirect(url_for('.profile', uname=user.username))
+    # update html rendered if nothing is submitted
+    return render_template('profile/update.html', form=form)
+
+
+# route processing form submission request, route only accepts posts requests(method=POSTS)
+@main.route('/user/<uname>/update/pic', methods=['POST'])
+@login_required
+def update_pic(uname):
+    user =User.query.filter_by(username = uname).first()
+    """
+    query database to pick a user with the same username passed in
+    """
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        """
+        flask request function used to check if any parameter with name photo has been passed into the request
+        save method used to save file in our application
+        """
+        path = f'photos/{filename}'
+        """
+        path variable to file storage location created after saving
+        """
+        user.profile_pic_path = path
+        """
+        updating profile pic path property in user table and store path to file
+        """
+        db.session.commit()
+    return redirect(url_for('main.profile', uname = uname))

@@ -1,5 +1,13 @@
 # import os module allowing interaction with operating system dependent functionality
 import os
+# setup smtp server and configurations to connect to smtp server port
+MAIL_SERVER = 'smtp.googlemail.com'
+MAIL_PORT = '587'
+MAIL_USE_TLS =True # enables transport layer security to secure emails when sending emails
+
+# emails and password to authenticate the gmail smtp server and are set as environment variables
+MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
 
 
 class Config:
@@ -15,6 +23,12 @@ class Config:
 
     # enable CSRF secret key
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://eugene:necromancer@localhost/watchlist'
+
+    # configuration UPLOAD_PHOTOS_DEST created specifying destination of image storage, a photos folder in static folder
+    # photos should be stored in app instead of inside database
+    # the path to the photos is stored in the database
+    UPLOADED_PHOTOS_DEST = 'app/static/photos'
 
 
 class ProdConfig(Config):

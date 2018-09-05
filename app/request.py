@@ -79,7 +79,7 @@ def get_movie(id):
     return movie_object
 
 
-# function proces_results taking in list of dictionaries
+# function process_results taking in list of dictionaries
 def process_results(movie_list):
     """
     Function processing the movie result and transform them to a list of objects
