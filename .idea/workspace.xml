@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="82fdc8c5-4f2e-4ff0-b299-76e469dfc832" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/auth/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/auth/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/auth/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/email.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/auth/auth-base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/auth/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/auth/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/email/welcome_user.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/email/welcome_user.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/profile/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/profile/update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/request.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/request.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instance/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/instance/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/jinja2/loaders.py" beforeDir="false" afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/jinja2/loaders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/jinja2/meta.py" beforeDir="false" afterPath="$PROJECT_DIR$/virtual/lib/python3.6/site-packages/jinja2/meta.py" afterDir="false" />
-    </list>
+    <list default="true" id="82fdc8c5-4f2e-4ff0-b299-76e469dfc832" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +55,7 @@
           <entry key="html" value="3856" />
           <entry key="md" value="196" />
           <entry key="procfile" value="1" />
-          <entry key="py" value="28280" />
+          <entry key="py" value="28297" />
           <entry key="sh" value="158" />
           <entry key="txt" value="160" />
         </counts>
@@ -94,7 +66,7 @@
           <entry key="HTML" value="3856" />
           <entry key="Markdown" value="196" />
           <entry key="PLAIN_TEXT" value="209" />
-          <entry key="Python" value="28280" />
+          <entry key="Python" value="28297" />
         </counts>
       </usages-collector>
     </session>
@@ -215,8 +187,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/__init__.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="122">
-                  <caret line="42" column="51" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="51" />
+                <state>
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -349,7 +320,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="549" />
+    <option name="x" value="498" />
     <option name="y" value="-4" />
     <option name="width" value="796" />
     <option name="height" value="764" />
@@ -387,38 +358,6 @@
               <item name="Watchlist" type="b2602c69:ProjectViewProjectNode" />
               <item name="Watchlist" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Watchlist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Watchlist" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Watchlist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Watchlist" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Watchlist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Watchlist" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Watchlist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Watchlist" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Watchlist" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Watchlist" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Watchlist" type="b2602c69:ProjectViewProjectNode" />
@@ -596,10 +535,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1366" height="772" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16742425" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.11818182" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="1" weight="0.32919255" />
@@ -611,7 +549,7 @@
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30590063" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32298136" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32954547" />
       <window_info anchor="right" id="R Graphics" order="0" weight="0.32954547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -621,7 +559,7 @@
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.29583332" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.29466668" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="1" weight="0.32919255" />
@@ -633,7 +571,7 @@
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30592105" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32401314" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.32954547" />
       <window_info anchor="right" id="R Graphics" order="0" weight="0.32954547" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
@@ -992,8 +930,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="42" column="51" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="51" />
+        <state>
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
